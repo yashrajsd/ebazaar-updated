@@ -1,8 +1,11 @@
 import React from 'react'
-
+import FarmsNavbar from './Farms Components/FarmsNavbar'
+import './Farms.scss'
 const Farms = () => {
   return (
-    <div>Farms</div>
+    <div className='farms-container'>
+      <FarmsNavbar/>
+    </div>
   )
 }
 

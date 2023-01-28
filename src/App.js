@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router';
 import './App.css';
 import Navbar from './Header Component/Navbar';
@@ -9,23 +9,42 @@ import Farms from './Pages/Farms';
 import Helpers from './Pages/Helpers';
 import Home from './Pages/Home';
 import NotFound from './Pages/NotFound';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+import { auth } from './firebase';
+import Profile from './Pages/Profile';
+import Farm from './Pages/Farm';
+import Cart from './Pages/Cart';
 function App() {
   const [active,setACtive] = useState('home')
+  const [user,setUser] = useState(null)
+
+  useEffect(()=>{
+    auth.onAuthStateChanged((userinfo)=>{
+      if(userinfo){
+        setUser(userinfo)
+      }else{
+        setUser(null)
+      }
+    })
+  },[])
   return (
     <div className="App">
-      <OfferHeader/>
-      <Navbar active={active} setActive={setACtive}/>
+      <OfferHeader user={user}/>
+      <Navbar active={active} setActive={setACtive} user={user}/>
+      <ToastContainer position='bottom-right'/>
       <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/farms' element={<Farms/>}/>
+        <Route path='/' element={<Home user={user} setActive={setACtive}/>}/>
+        <Route path='/farms' element={<Farms user={user}/>}/>
         <Route path='/helpers' element={<Helpers/>}/>
         <Route path='/cbs' element={<CBS/>}/>
         <Route path='*' element={<NotFound/>}/>
-        <Route path='/auth' element={<Auth/>}/>
+        <Route path='/auth' element={<Auth user={user}/>}/>
+        <Route path='/profile' element={<Profile user={user}/>}/>
+        <Route path='/farm/:id' element={<Farm user={user}/>}/>
+        <Route path='/cart' element={<Cart user={user}/>}/>
       </Routes>
     </div>
   );
 }
-
 export default App;

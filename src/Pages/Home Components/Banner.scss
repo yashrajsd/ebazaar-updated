@@ -1,11 +1,12 @@
 .banner-container{
-    background-color: #ece9f8;
-    height: 65vh;
+    background-color: #7e6de8;
+    height: 70vh;
     display: flex;
     padding: 20px 4%;
     .div-1{
         flex-basis: 50%;
-        padding-top: 10vh;
+        display: flex;
+        align-items: center;
         button{
             padding: 10px 20px;
             font-size: 20px;
@@ -19,17 +20,26 @@
             }
         }
         .signup-btn{
-            background-color: #7e6de8;
-            color: white;
+            background-color: #ffffff;
+            border:#413e57 solid 2px ;
             border-radius: 5px;
-            &:hover{
-                background-color: #6b5ccc;
+            p{
+                color:#413e57;
             }
+            &:hover{
+                background-color: #686868;
+                p{
+                    color: white;
+                }
+            }
+        }
+        .p{
+            color: #413e57;;
         }
         .browse-farm-btn{
             background-color: transparent;
             border-radius: 5px;
-            border: #7e6de8 2px solid;
+            border: white 2px solid;
             &:hover{
                 background-color:#413e57;
                 p{
@@ -37,12 +47,12 @@
                 }
             }
             p{
-                color: #7e6de8;
+                color: white;
             }
         }
         h1{
             font-size: 55px;
-            color: #413e57;
+            color: white;
             display: inline;
             span{
                 text-decoration: underline solid #7e6de8;
@@ -51,6 +61,7 @@
         p{
             font-size: 20px;
             font-family: 'Varela Round', sans-serif;
+            color: white;
             span{
                 font-weight: 600;
             }
@@ -60,7 +71,7 @@
             height: 10vh;
             background-color: white;
             border-radius: 10px;
-            border:solid 2px #7e6de8;
+            border:solid 2px #3e3579;
             margin-top: 50px;
             display: flex;
             align-items: center;
@@ -80,13 +91,14 @@
             .create-store-logo{
                 font-size: 25px;
                 padding: 0px 20px;
+                color: #413e57;
             }
             .farmer-logo{
                 position: absolute;
                 right: 0;
                 div{
                     border-radius: 50%;
-                    background-color: #7e6de8;
+                    background-color: #4e4491;
                     border: #413e57 solid 2px;
                     overflow: hidden;
                     height: 50px;

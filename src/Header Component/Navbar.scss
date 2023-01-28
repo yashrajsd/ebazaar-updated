@@ -1,7 +1,10 @@
+.navbar-main{
+    position: sticky;
+}
 .navbar-container{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     flex: 1;
-    height: 12vh;
+    height: 10.5vh;
     background-color: white;
     padding: 0px 4%;
     display: flex;
@@ -16,7 +19,7 @@
         display: flex;
         align-items: center;
         img{
-            width: 200px;
+            width: 150px;
         }
     }
     .links-list{
@@ -53,8 +56,8 @@
             top: -2px;
         }
           p{
-            font-size: 18px;
-            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 500;
             color:#5C5589;
             cursor: pointer;
             transition: 0.4s;
@@ -69,6 +72,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            .navbar-profile-div{
+                img{
+                    height: 30px;
+                    width: 30px;
+                    margin-right: 20px;
+                    border-radius: 50%;
+                    border: solid lightcyan 2px;
+                }
+                button{
+                   text-align: center;
+                   font-size: 14px;
+                }
+                p{
+                    display: inline;
+                }
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
             button{
                 background-color: white;
                 border-radius: 20px;
@@ -83,6 +105,11 @@
                     color: white;
                 }
               }
+              .profile-active-btn{
+                background-color: #7864f8;
+                color: white;
+              }
         }
     }
 }
+

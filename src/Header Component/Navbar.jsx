@@ -2,7 +2,10 @@ import React from 'react'
 import './Navbar.scss'
 import { Link } from 'react-router-dom'
 import Logo from '.././images/EBazaar.png'
+import prfImg from './logo192.png'
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 const Navbar = ({user,active,setActive}) => {
+    console.log(user)
   return (
     <div className='navbar-main'>
         <div className='navbar-container'>
@@ -21,15 +24,23 @@ const Navbar = ({user,active,setActive}) => {
             <Link to={'/helpers'} style={{textDecoration:'none'}} onClick={()=>{setActive('helpers')}}>
             <li><p className={`${active==='helpers' ? 'active' : ''}`}>Hire Helpers</p></li>
             </Link>
-            <Link to={'/cbs'} style={{textDecoration:'none'}} onClick={()=>{setActive('cbs')}}>
-            <li><div className='cbs'><p className={`${active==='cbs' ? 'active' : ''}`}>CBS</p><span className='cbs-featured'>Featured</span></div></li>
-            </Link>  
-                {user && (<li><p>Create Farm</p></li>)}
+            <li><div className='cbs'><Link to={'/cbs'} style={{textDecoration:'none'}} onClick={()=>{setActive('cbs')}}><p className={`${active==='cbs' ? 'active' : ''}`}>CBS</p></Link> <span className='cbs-featured'>Featured</span></div></li>
+             
             </ul>
             <div className='auth-button'>
-                <Link to={'/auth'} onClick={()=>{setActive('auth')}}>
+                {!user ? (<Link to={'/auth'} onClick={()=>{setActive('auth')}}>
                 <button className={`${active === 'auth' ? 'active-btn':''}`}>Sign Up</button>
-                </Link>
+                </Link>):(
+                <div className='navbar-profile-div'>
+                    <ShoppingCartOutlinedIcon style={{color:'rgb(60, 60, 60)',fontSize:'30px',marginRight:'10px',cursor:'pointer'}} className='shopping-cart'/>
+                    <Link to={`/profile`} onClick={()=>{setActive('profile')}} style={{textDecoration:'none'}}>
+                    <button className={active==='profile' && 'profile-active-btn'}>
+                    <p>{user.displayName}</p>
+                    </button>
+                    </Link>
+                </div>
+                )}
+                
             </div>
         </div>
     </div>

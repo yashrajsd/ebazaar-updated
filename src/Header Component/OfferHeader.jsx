@@ -1,9 +1,9 @@
 import React from 'react'
 import './OfferHeader.scss'
-const OfferHeader = () => {
+const OfferHeader = ({user}) => {
   return (
     <div className='offerHeader-container'>
-        <p>Sign Up! now and start shopping from your local farmers</p>
+      {!user ? (<p>Sign Up! now and start shopping from your local farmers</p>):(<p>Hello! {user.displayName}, browse the farms to start shopping now</p>)}  
     </div>
   )
 }
