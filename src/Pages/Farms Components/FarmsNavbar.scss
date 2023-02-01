@@ -1,0 +1,70 @@
+$base-color-purple: #7c6de0;
+
+.farm-navbar {
+    padding: 1rem;
+    border-bottom: 1px solid lightgray;
+
+    input {
+        font-size: 20px;
+        border-radius: 22px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .farm-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 20px;
+
+        input {
+            border: $base-color-purple solid 2px;
+            border-radius: 22px;
+            // margin-left: 3rem;
+            height: 3rem;
+            font-size: 20px;
+            font-family: 'Poppins', sans-serif;
+
+            &:focus {
+                border: $base-color-purple solid 2px !important;
+            }
+        }
+
+        ul {
+            display: flex;
+            margin: 0px;
+            .activeCategory {
+                color: $base-color-purple;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            }
+
+            padding: 0;
+
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 3rem;
+                padding: 0px 10px;
+                margin: 0.5rem;
+                width: fit-content;
+                border: 2px solid $base-color-purple;
+                border-radius: 20px;
+                color: rgb(71, 71, 71);
+                list-style: none;
+                font-family: 'Poppins', sans-serif;
+                font-size: 1rem;
+                cursor: pointer;
+                position: relative;
+                // left: 0;
+                top: 0;
+                transition: 0.5s;
+
+                &:hover {
+                    color: #7c6de0;
+                    // left: 20px;
+                    top: 10px;
+                }
+            }
+        }
+    }
+}
