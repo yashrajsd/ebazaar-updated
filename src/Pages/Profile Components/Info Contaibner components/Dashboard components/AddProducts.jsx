@@ -10,6 +10,7 @@ import { uploadBytesResumable } from 'firebase/storage';
 import { addDoc, collection } from 'firebase/firestore';
 import { getDownloadURL } from 'firebase/storage';
 import { useNavigate } from 'react-router';
+import { doc } from 'firebase/firestore';
 const cats = ['Vegetables','Fruits','Poultry Items','Dairy Items']
 
 const initialstate={
@@ -66,6 +67,10 @@ const AddProducts = ({userUID}) => {
     if(title && price && discription && category && itemImageUrl){
       const docRef =collection(db,'farms',userUID?.uid,'products')
       await addDoc(docRef,{
+        ...form,
+        farm:userUID?.uid,
+      })
+      await addDoc(collection(db,'products'),{
         ...form,
         farm:userUID?.uid,
       })
