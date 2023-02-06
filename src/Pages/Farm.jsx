@@ -10,12 +10,24 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { onSnapshot } from 'firebase/firestore';
 import { async } from '@firebase/util';
 import { toast } from 'react-toastify';
+import img1 from '../images/img1.png'
+import img2 from '../images/img2.png'
+import $ from 'jquery';
+import {findDOMNode} from 'react-dom'
 const Farm = ({user}) => {
   const {id} = useParams()
   const [farm,setFarm] = useState([])
   const [products,setProducts] = useState([])
   const [categoryProduct,setCategoryProduct] =useState([])
   let list = [];
+
+  const handleMembership=async ()=>{
+    await setDoc(doc(db,'farms',id,'members',user?.uid),{
+      name:user?.displayName,
+    })
+    console.log('Joined membership')
+  }
+
   useEffect(()=>{
     console.log('rendering')
     const unsub = onSnapshot(
@@ -35,6 +47,11 @@ const Farm = ({user}) => {
       unsub();
     }
   },[])
+
+  const handleToggle=()=>{
+    $('.info-banner').slideToggle()
+  }
+
 
   const handleClick=async(e)=>{
     await setDoc(doc(db,'users',user?.uid,'cart',e.target.id),{
@@ -105,9 +122,29 @@ const Farm = ({user}) => {
                 <img src={farm.bannerURL} alt="" />
               </div>
               <div className='div-card-2'>
-                <button className='membership-btn'><p>Join Membership</p></button>
-                <p>Owner: {farm.firstName} {farm.lastName}</p>
+                <button className='membership-btn' onClick={handleMembership}><p>Join Membership</p></button>
+                  <p style={{textAlign:'center',cursor:'pointer',fontSize:'14px',marginTop:'20px'}} onClick={handleToggle}>Show Membership Benefits</p>
               </div>
+            </div>
+          </div>
+        </div>
+        <div className='info-banner' style={{display:'none'}} useRef='toggle'>
+          <div className='info-card info-1'>
+            <div className='div-1'>
+              <img src={img1} alt="" />
+            </div>
+            <div className="div-2">
+              <h3>Early Delivery</h3>
+              <p>Being a member of this farm, your orders will the prioritized first making sure you recieve your delivery the earliest</p>
+            </div>
+          </div>
+          <div className='info-card info-1'>
+            <div className='div-1'>
+              <img src={img2} alt="" />
+            </div>
+            <div className="div-2">
+              <h3>Direct Chat System</h3>
+              <p>With the membership you get to directly contact the farmer with our chat web-app</p>
             </div>
           </div>
         </div>
