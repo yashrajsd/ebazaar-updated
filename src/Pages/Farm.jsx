@@ -10,8 +10,8 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { onSnapshot } from 'firebase/firestore';
 import { async } from '@firebase/util';
 import { toast } from 'react-toastify';
-import img1 from '../images/img1.png'
-import img2 from '../images/img2.png'
+// import img1 from '../images/img1.png'
+// import img2 from '../images/img2.png'
 import $ from 'jquery';
 import {findDOMNode} from 'react-dom'
 const Farm = ({user}) => {
@@ -91,21 +91,6 @@ const Farm = ({user}) => {
   const [category,setCategory] = useState('')
   return (
     <div className='farm-container'>
-        {/* <div className='farm-banner-container'>
-            <div className='div-1'>
-              <h1>Welcome to {farm?.farmName}</h1>
-              <p className='description'>{farm?.description}</p>
-              <form action="submit" onSubmit={(e)=>{e.preventDefault()}}>
-              <input type="text" placeholder={`Quick feedback`} />
-              <button type='submit' style={{display:'none'}}></button>
-              </form>
-              <p style={{margin:'0',marginTop:'10px',marginLeft:'5px'}}><InfoIcon style={{color:'yellow'}}/> Keep it short and to the point</p>
-              <p>Would you like to recommend this farm? <ThumbUpIcon style={{marginLeft:'10px',cursor:'pointer'}} className='like'/></p>
-            </div>
-            <div className='div-2'>
-              <img src={farmer} alt="" />
-            </div>
-        </div> */}
         <div className='farm-banner-main'>
           <div className="div-1">
             <h1>Welcome to {farm?.farmName}</h1>
@@ -131,7 +116,7 @@ const Farm = ({user}) => {
         <div className='info-banner' style={{display:'none'}} useRef='toggle'>
           <div className='info-card info-1'>
             <div className='div-1'>
-              <img src={img1} alt="" />
+              {/* <img src={img1} alt="" /> */}
             </div>
             <div className="div-2">
               <h3>Early Delivery</h3>
@@ -140,7 +125,7 @@ const Farm = ({user}) => {
           </div>
           <div className='info-card info-1'>
             <div className='div-1'>
-              <img src={img2} alt="" />
+              {/* <img src={img2} alt="" /> */}
             </div>
             <div className="div-2">
               <h3>Direct Chat System</h3>
