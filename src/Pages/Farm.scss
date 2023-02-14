@@ -1,5 +1,144 @@
 .farm-container{
-    
+    .info-banner{
+        overflow: hidden;
+        margin: 50px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        flex-wrap: wrap;
+        .info-card{
+            transition: 0.4s;
+            &:hover{
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            }
+            border: solid 2px lightgray;
+            border-radius: 10px;
+            display: flex;
+            gap: 20px;
+            .div-1{
+                img{
+                    width: 15rem;
+                }
+            }
+            .div-2{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                max-width: 20rem;
+                margin: 0px 10px;
+                h3{
+                    margin: 0;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 25px;
+                    margin-bottom: 10px;
+                }
+                p{
+                    margin: 0;
+                    font-family: 'Poppins', sans-serif;
+                }
+            }
+        }
+    }
+    .farm-banner-main{
+        padding: 20px 50px;
+        display: flex;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        
+        .div-1{
+            flex-basis: 70%;
+            input{
+                padding: 15px 20px;
+                border-radius: 22px;
+                font-family: 'Poppins', sans-serif;
+                border: none;
+                border: solid lightgray 2px;
+                margin-top: 50px;
+                width: 45%;
+                &:focus{
+                    border: none;
+                }
+            }
+            h1{
+                font-size: 70px;
+                margin: 0;
+                font-family: 'Poppins', sans-serif;
+                color: rgb(43, 43, 43);
+            }
+            p{
+                font-size: 20px;
+                font-family: 'Poppins', sans-serif;
+                margin-right: 15%;
+                color: rgb(43, 43, 43);
+            }
+            .like{
+                &:hover{
+                    animation: like 1s alternate 1;
+                }
+                color: #7c6de0;
+                position: relative;
+                top:2px;
+                right: 3px;
+            }
+            .like-text{
+                margin: 0;
+                color: #4e40a6;
+                margin-top: 20px;
+            }
+            
+        }
+        .div-2{
+            flex-basis: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            .farm-card{
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+                width:18vw;
+                border: solid lightgray 2px;
+                border-radius: 14px;
+                background-color: #7c6de0;
+                padding: 20px 20px;
+                .div-card-1{
+                border-radius: 14px;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    height: 12rem;;
+                }
+                }
+                .div-card-2{
+                    p{
+                        color: white;
+                        font-weight: 700;
+                        font-size: 1rem;
+                    }
+                    .membership-btn{
+                        width: 100%;
+                        background-color: #43359e;
+                        border: none;
+                        border-radius: 22px;
+                        margin-top: 20px;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                        cursor: pointer;
+                        transition: 0.4s;
+                        p{
+                            margin: 0;
+                            color: white;
+                            margin: 10px 20px;
+                            font-family: 'Poppins', sans-serif;
+                        }
+                        &:hover{
+                            background-color: #4e40a6;
+                        }
+                    }
+                }
+            }
+        }
+    }
     .farm-banner-container{
         width: 100%;
         min-height: 60vh;
@@ -120,6 +259,7 @@
         }
         .div-2{
             flex-basis: 75%!important;
+            
             .product-container{
                 margin: 50px 20px;
                 display: flex;

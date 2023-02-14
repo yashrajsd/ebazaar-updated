@@ -10,6 +10,7 @@ import { uploadBytesResumable } from 'firebase/storage';
 import { addDoc, collection } from 'firebase/firestore';
 import { getDownloadURL } from 'firebase/storage';
 import { useNavigate } from 'react-router';
+import { doc } from 'firebase/firestore';
 const cats = ['Vegetables','Fruits','Poultry Items','Dairy Items']
 
 const initialstate={
@@ -69,11 +70,11 @@ const AddProducts = ({userUID}) => {
         ...form,
         farm:userUID?.uid,
       })
-      toast.success('Product added successfully')
       await addDoc(collection(db,'products'),{
         ...form,
         farm:userUID?.uid,
       })
+      toast.success('Product added successfully')
       navigate(`/farm/${userUID?.uid}`)
     }else{
       toast.error('All fields are mandatory to fill')
