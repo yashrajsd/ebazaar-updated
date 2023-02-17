@@ -14,7 +14,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { auth } from './firebase';
 import Profile from './Pages/Profile';
 import Farm from './Pages/Farm';
-import Cart from './Pages/Cart';
+import Cart from './Pages/Cart Components/Cart';
 function App() {
   const [active,setACtive] = useState('home')
   const [user,setUser] = useState(null)
