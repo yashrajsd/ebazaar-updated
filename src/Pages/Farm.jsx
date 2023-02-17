@@ -10,9 +10,9 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { onSnapshot } from 'firebase/firestore';
 import { async } from '@firebase/util';
 import { toast } from 'react-toastify';
-import img1 from '../images/img1.png'
-import img2 from '../images/img2.png'
-import $ from 'jquery';
+// import img1 from '../images/img1.png'
+// import img2 from '../images/img2.png'
+import $ from 'jquery'
 import {findDOMNode} from 'react-dom'
 const Farm = ({user}) => {
   const {id} = useParams()
@@ -53,11 +53,17 @@ const Farm = ({user}) => {
   }
 
 
-  const handleClick=async(e)=>{
-    await setDoc(doc(db,'users',user?.uid,'cart',e.target.id),{
-      item:e.target.id,
+  const handleClick=async(prod)=>{
+    const {id, title, price, itemImageUrl,discription} = prod
+    console.log("Hellllow");
+    await setDoc(doc(db,'users',user?.uid, 'cart', id),{
+      item:id,
+      title:title,
+      price:price,
+      itemImageUrl:itemImageUrl,
+      discription:discription,
       quantity:1,
-      farm:id,
+      farm:user.uid,
     })
     toast.success(`Item Added to the Cart`)
   }
@@ -131,7 +137,7 @@ const Farm = ({user}) => {
         <div className='info-banner' style={{display:'none'}} useRef='toggle'>
           <div className='info-card info-1'>
             <div className='div-1'>
-              <img src={img1} alt="" />
+              {/* <img src={img1} alt="" /> */}
             </div>
             <div className="div-2">
               <h3>Early Delivery</h3>
@@ -140,7 +146,7 @@ const Farm = ({user}) => {
           </div>
           <div className='info-card info-1'>
             <div className='div-1'>
-              <img src={img2} alt="" />
+              {/* <img src={img2} alt="" /> */}
             </div>
             <div className="div-2">
               <h3>Direct Chat System</h3>
@@ -178,7 +184,7 @@ const Farm = ({user}) => {
                   <p className='like-status'>liked by 6</p>
                   <div className='cart-view'>
                     <button>View Item</button>
-                    <p onClick={handleClick} id={product.id} name={product.farm}>add to cart</p>
+                    <p onClick={()=>{handleClick(product)}} id={product.id} name={product.farm}>add to cart</p>
                   </div>
                   <p style={{textAlign:'center',marginTop:'10px',fontSize:'10px'}}>produced by {farm?.farmName}</p>
                 </div>

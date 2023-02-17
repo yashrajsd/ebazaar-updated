@@ -5,7 +5,7 @@ import Logo from '.././images/EBazaar.png'
 import prfImg from './logo192.png'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 const Navbar = ({user,active,setActive}) => {
-    console.log(user)
+    // console.log(user)
   return (
     <div className='navbar-main'>
         <div className='navbar-container'>
